@@ -1,2 +1,2 @@
-# Traffic Light Simulator Diploma
+# Traffic Light Simulator [Diploma]
  Graduation work
