@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Transitional Process</title>
+    <script src="Chart.min.js"></script>
+    <script src="utils.js"></script>
+    <script src="chartjs-plugin-annotation.min.js"></script>
+
+    <style>
+        canvas {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+<div class="chart-container" style="position: relative; height:60vh; width:80vw">
+    <canvas id="canvas"></canvas>
+</div>
+<script>
+    var request = new XMLHttpRequest();
+    request.open("GET", "output_tp.json", false);
+    request.send(null);
+    var input_json = JSON.parse(request.responseText);
+
+    var chartData = {
+        type: 'line',
+
+        labels: [...Array(2000).keys()],
+        datasets: [{
+            label: 'First flow',
+            fill: false,
+            borderColor: '#00b970',
+            borderDash: [10, 10],
+            borderSize: 7,
+            backgroundColor: '#00B970',
+            data: input_json.first_stream,
+            lineWidth: 2,
+            pointRadius: customRadius([...Array(2000).keys()]),
+            borderWidth: 2
+            //pointStyle: 'star'
+        }, {
+            label: 'First loaded flow',
+            fill: false,
+            backgroundColor: '#fd01ce',
+            borderColor: '#fd01ce',
+            borderDash: [3, 3],
+            borderSize: 3,
+            data: input_json.first_stream_loading,
+            lineWidth: 2,
+            borderWidth: 5
+            //pointStyle: 'star'
+        }, {
+            label: 'Second flow',
+            fill: false,
+            backgroundColor: '#0001ff',
+            borderColor: '#001aff',
+            data: input_json.second_stream,
+            lineWidth: 2,
+            //pointStyle: 'rectRot',
+            //pointStyle: 'star'
+        }, {
+            label: 'Second loaded flow',
+            fill: false,
+            backgroundColor: '#ff6100',
+            borderColor: '#ff6100',
+            borderDash: [2,2],
+            borderSize: 2,
+            data: input_json.second_stream_loading,
+            lineWidth: 5,
+            borderWidth: 2,
+            legendColorBackground: '#ffd4eb',
+            labelBackgroundColor: '#ffd4eb',
+            showInLegend: true,
+            // pointStyle: 'star',
+            // pointRadius: 1
+        }],
+        lineAtIndex: 2,
+    };
+
+    // window.onload = function() {
+    //     const ctx = document.getElementById("canvas").getContext("2d");
+    //     new Chart(ctx, chartData);
+    // };
+
+    window.onload = function () {
+        var ctx = document.getElementById("canvas").getContext("2d");
+        new Chart(ctx, {
+                type: "line",
+                data: chartData,
+                options: {
+                    annotation: {
+                        annotations: [
+                            {
+                                borderWidth: 5,
+                                type: "line",
+                                mode: "vertical",
+                                scaleID: "x-axis-0",
+                                value: input_json.car_number,
+                                borderColor: '#51040a',
+                                label: {
+                                    content: "End of TP",
+                                    enabled: true,
+                                    position: "top",
+                                    fontSize: 12,
+                                    xPadding: 10,
+                                    yPadding: 10,
+                                }
+                            }
+                        ]
+                    },
+                    legend: {
+                        position: 'top',
+                        display: true,
+                        labels: {
+                            boxWidth: 1,
+                            fontColor: 'rgb(0,0,0)',
+                            fontSize: 18,
+                            fontFamily: 'Arial',
+                            usePointStyle: false
+                        }
+                    },
+                    elements: {
+                        point: {
+                            radius: 0,
+                            hoverRadius: 0,
+                        },
+                    },
+                    responsive: true,
+                    title: {
+                        display: true,
+                        text: 'Average waiting time',
+                        fontSize: 30,
+                        fontColor: 'rgb(0,0,0)',
+                        fontFamily: 'Arial'
+                    },
+                    tooltips: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                    hover: {
+                        mode: 'nearest',
+                        intersect: true
+                    },
+                    scales: {
+                        xAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Number of served cars',
+                                fontSize: 25,
+                                fontColor: 'rgb(0,0,0)',
+                                fontFamily: 'Arial'
+                            },
+                            ticks: {
+                                userCallback: function (item, index) {
+                                    if (!(index % 100)) return item;
+                                },
+                                autoSkip: false
+                            }
+                        }],
+                        yAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Time',
+                                fontColor: 'rgb(0,0,0)',
+                                fontFamily: 'Arial',
+                                fontSize: 25
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+
+            }
+        );
+    };
+
+    function customRadius(arr) {
+        var answer = [];
+
+        for (var i = 0, len = arr.length; i < len; i++) {
+            if(arr[i] % 40) {
+                answer.push(0)
+            } else {
+                answer.push(3)
+            }
+        }
+
+        return answer;
+    }
+
+    // window.onload = function () {
+    //     var ctx = document.getElementById('canvas').getContext('2d');
+    //     new Chart(ctx, config);
+    //     // var ctx = document.getElementById('canvas').getContext('2d');
+    //     // window.myLine = new Chart(ctx, config);
+    // };
+</script>
+</body>
+
+</html>

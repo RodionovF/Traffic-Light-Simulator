@@ -1,0 +1,16 @@
+First stream's lamda for good weather = 0.065
+First stream's lamda for bad weather = 0.075
+Probability for a group of one car = 0.55
+Probability for a group of two car = 0.35
+Probability for a group of three car = 0.1
+
+Second stream's lamda for good weather = 0.095
+Second stream's lamda for bad weather = 0.055
+Probability for a group of one car = 0.65
+Probability for a group of two car = 0.25
+Probability for a group of three car = 0.1
+
+Stationary distribution: 
+Good weahter = 0.8
+Bad weather = 0.2
+

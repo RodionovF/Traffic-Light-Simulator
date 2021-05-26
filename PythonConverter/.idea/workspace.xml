@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="297f2488-e765-431c-8899-8ad35ff6bd74" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/Trafficlight$traffic.coverage" NAME="traffic Coverage Results" MODIFIED="1561028507584" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/traffic$traffic.coverage" NAME="traffic Coverage Results" MODIFIED="1560891033886" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>import numpy as np import pandas import matplotlib.pyplot as plt from sympy import * from sympy.plotting import plot3d from matplotlib.mlab import griddata  if __name__ == '__main__':      data = pandas.read_csv('output1.csv')     #print(data_train)     func = data.iloc[:, 0]     T_1_good = data.iloc[:,1]     T_2_good = data.iloc[:, 2]     T_1_bad = data.iloc[:, 3]     T_2_bad = data.iloc[:, 4]     M1 = data.iloc[:, 5]     M2 = data.iloc[:, 6]      fix_T1 = T_1_bad[0]     fix_T2 = T_2_bad[0]      size = sqrt(sqrt(len(func)))     print(size)     F = np.zeros((size,size))     T1 = np.zeros(size)     T2 = np.zeros(size)     for i in range(0, len(func)):         if( T_1_bad[i] == fix_T1 and T_2_bad[i] == fix_T2):             F[T_1_good[i]-15][T_2_good[i]-15] = func[i]             T1[T_1_good[i]-15] = T_1_good[i]             T2[T_2_good[i]-15] = T_2_good[i]       #plt.scatter(T1, T2, c=F, cmap='rainbow', marker=&quot;s&quot;, s=2200)     #plt.colorbar()      Y, X = np.meshgrid(T1, T2)     print(X)     #for x in range():     #    for y in range(3):     #      c = np.random.randint(1, 4)     #        W[x][y] = c  # 2D array with 1, 2 or 3 in each cell        plt.xlabel(&quot;Время зеленого света для первого потока - хорошая погода (GW)&quot;)     plt.ylabel(&quot;Время зеленого света для второго потока - хорошая погода (GW)&quot;)     plt.title('Значение среднего времени ожидания при фиксированных значениях времени зеленего света при плохо погоде (BW_1 = %d, BW_2 = %d)' % (fix_T1,fix_T2))     #ax_2.legend([('Rec to lvl %d') % (nl - i)])      plt.show()     #Accent, Accent_r, Blues, Blues_r, BrBG, \     #BrBG_r, BuGn, BuGn_r, BuPu, BuPu_r, CMRmap, \     #CMRmap_r, Dark2, Dark2_r, GnBu, GnBu_r, Greens, \     #Greens_r, Greys, Greys_r, OrRd, OrRd_r, Oranges, Oranges_r, \     #PRGn, PRGn_r, Paired, Paired_r, Pastel1, Pastel1_r, Pastel2, \     #Pastel2_r, PiYG, PiYG_r, PuBu, PuBuGn, PuBuGn_r, PuBu_r, PuOr, \     #PuOr_r, PuRd, PuRd_r, Purples, Purples_r, RdBu, RdBu_r, RdGy, RdGy_r, \     #RdPu, RdPu_r, RdYlBu, RdYlBu_r, RdYlGn, RdYlGn_r, Reds, Reds_r, Set1, \     #Set1_r, Set2, Set2_r, Set3, Set3_r, Spectral, Spectral_r, Wistia, Wistia_r, \     #YlGn, YlGnBu, YlGnBu_r, YlGn_r, YlOrBr, YlOrBr_r, YlOrRd, YlOrRd_r, afmhot, \     #afmhot_r, autumn, autumn_r, binary, binary_r, bone, bone_r, brg, brg_r, bwr, \     #bwr_r, cividis, cividis_r, cool, cool_r, coolwarm, coolwarm_r, copper, copper_r, \     #cubehelix, cubehelix_r, flag, flag_r, gist_earth, gist_earth_r, gist_gray, gist_gray_r, \     #gist_heat, gist_heat_r, gist_ncar, gist_ncar_r, gist_rainbow, gist_rainbow_r, gist_stern, \     #gist_stern_r, gist_yarg, gist_yarg_r, gnuplot, gnuplot2, gnuplot2_r, gnuplot_r, \     #gray, gray_r, hot, hot_r, hsv, hsv_r, inferno, inferno_r, jet, jet_r, magma, \     #magma_r, nipy_spectral, nipy_spectral_r, ocean, ocean_r, pink, pink_r, \     #plasma, plasma_r, prism, prism_r, rainbow, rainbow_r, seismic, seismic_r, \     #spring, spring_r, summer, summer_r, tab10, tab10_r, tab20, tab20_r, \     #tab20b, tab20b_r, tab20c, tab20c_r, terrain, terrain_r, twilight, \     #twilight_r, twilight_shifted, twilight_shifted_r, viridis, viridis_r, \     #winter, winter_r</find>
+    </findStrings>
+  </component>
+  <component name="ProjectId" id="1Qn8UC5guj6aZw85oGjXjDuNpvB" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../SHAD_PY/python2019/hello_world" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="traffic" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="traffic" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/../../SHAD_PY/Project/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/traffic.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.traffic" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="297f2488-e765-431c-8899-8ad35ff6bd74" name="Default Changelist" comment="" />
+      <created>1559078236050</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1559078236050</updated>
+      <workItem from="1568395018616" duration="2173000" />
+      <workItem from="1568399348021" duration="1086000" />
+      <workItem from="1568475826860" duration="727000" />
+      <workItem from="1568548132014" duration="30000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Trafficlight$traffic.coverage" NAME="traffic Coverage Results" MODIFIED="1568397988088" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
